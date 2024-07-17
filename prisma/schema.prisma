@@ -14,7 +14,7 @@ datasource db {
 }
 
 
-model User {
+model AssimUser {
   id String @id @default(uuid())
   firstName String
   lastName String
