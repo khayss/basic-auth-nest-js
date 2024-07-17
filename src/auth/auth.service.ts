@@ -2,7 +2,7 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { AppError } from 'src/dto/error.dto';
+import { AppError } from 'src/utils/error';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
