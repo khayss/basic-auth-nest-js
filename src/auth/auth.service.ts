@@ -12,9 +12,9 @@ export class AuthService {
     private readonly jwtServvice: JwtService,
   ) {}
 
-  async registerUser(registerUserDto: Prisma.UserCreateInput) {
+  async registerUser(registerUserDto: Prisma.AssimUserCreateInput) {
     try {
-      const isUser = await this.prismaService.user.findUnique({
+      const isUser = await this.prismaService.assimUser.findUnique({
         where: { email: registerUserDto.email },
       });
 
@@ -27,7 +27,7 @@ export class AuthService {
         registerUserDto.password,
         salt,
       );
-      const isRegister = await this.prismaService.user.create({
+      const isRegister = await this.prismaService.assimUser.create({
         data: registerUserDto,
       });
       if (isRegister) {
@@ -61,9 +61,9 @@ export class AuthService {
     }
   }
 
-  async loginUser(loginUserDto: Prisma.UserWhereUniqueInput) {
+  async loginUser(loginUserDto: Prisma.AssimUserWhereUniqueInput) {
     try {
-      const user = await this.prismaService.user.findUnique({
+      const user = await this.prismaService.assimUser.findUnique({
         where: { email: loginUserDto.email },
       });
       if (!user) {
