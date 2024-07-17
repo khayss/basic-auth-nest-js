@@ -39,6 +39,7 @@ export class AuthService {
 
       throw new Error('User registration failed');
     } catch (error) {
+      console.log(error);
       if (error instanceof AppError) {
         throw new HttpException(
           {
